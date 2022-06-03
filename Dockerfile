@@ -1,0 +1,1 @@
+FROM steamcmd/steamcmd:latest
