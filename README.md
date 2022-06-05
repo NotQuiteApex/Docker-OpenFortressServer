@@ -16,6 +16,7 @@ Q: How do I use this? How do I do X? Why won't this work now?
 A: This repo assumes you can do a few things: clone a Git repo, and download and use Docker. Support won't be offered otherwise. If you want to learn then Google is your friend, and I highly encourage you to learn!
 
 Also, if this image no longer works it is likely due to something outside of my control. Things change as projects grow and Open Fortress has changed a lot from using GitHub to SVN to ToastVN, I will not and cannot guarantee support into the foreseeable future.
+
 ---
 Q: Why do all this?
 
