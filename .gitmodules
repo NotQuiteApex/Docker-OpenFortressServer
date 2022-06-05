@@ -1,6 +1,0 @@
-[submodule "toast"]
-	path = toast
-	url = https://github.com/int-72h/toast.git
-[submodule "oflauncher-rei"]
-	path = oflauncher-rei
-	url = https://github.com/int-72h/oflauncher-rei.git

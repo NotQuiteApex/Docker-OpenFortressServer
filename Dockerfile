@@ -3,24 +3,22 @@
 FROM steamcmd/steamcmd:alpine
 
 # Some dependencies to download.
-RUN apk add --no-cache python3 py3-pip
+# RUN apk add --no-cache python3 py3-pip
+RUN apk add --no-cache curl
+
+# Install tooling (murse)
+RUN curl -L https://dl.spiderden.net/murse/linux -o murse && chmod +x ./murse
 
 # Copy everything in.
-ADD ./toast/ ./toast/
-ADD ./oflauncher-rei/ ./oflauncher-rei/
-ADD ./ofserver/ ./ofserver/
+ADD ./scripts/ ./scripts/
 
-# Compile and install tooling.
-RUN cd ./toast/ && pip3 install .
-
-# Import the scripts used to set it all up.
-RUN ./ofserver/tf2sdk-update.sh
-
-# Do some final linking of binaries.
-RUN ./ofserver/symlink-binaries.sh
-
-# Install Open Fortress finally
-RUN ./oflauncher-rei/ofrei/cli.py upgrade 
+# Install TF2 and Source SDK.
+RUN mkdir ~/ofserver/
+RUN ~/scripts/tf2sdk-update.sh
+# Install Open Fortress.
+RUN ./murse upgrade ~/ofserver/sdk/open_fortress/
+# Link binaries.
+RUN ~/scripts/symlink-binaries.sh
 
 # Expose the SRCDS port.
 # People who run the container will still need to route the port themselves.

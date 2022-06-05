@@ -1,6 +1,5 @@
 #!/bin/sh
 # Links shared objects with their server counterparts.
-# Assumes you 
 cd ~/ofserver/sdk/bin
 ln -s datacache_srv.so datacache.so
 ln -s dedicated_srv.so dedicated.so
