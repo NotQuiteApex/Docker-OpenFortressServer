@@ -10,15 +10,13 @@ jobs:
   docker:
     runs-on: ubuntu-latest
     steps:
-      -
-        name: Checkout repo
+      - name: Checkout repo
         uses: actions/checkout@v2
-      -
-        name: Docker Login
+      - name: Test Echo
+        run: echo ${{ secrets.DOCKER_USERNAME }}
+      - name: Docker Login
         run: echo ${{ secrets.DOCKER_ACCESS_TOKEN }} | docker login -u ${{ secrets.DOCKER_USERNAME }} --password-stdin
-      -
-        name: Docker Build
+      - name: Docker Build
         run: docker build . -t notquiteapex/openfortress_server:latest
-      -
-        name: Docker Push
+      - name: Docker Push
         run: docker push notquiteapex/openfortress_server
