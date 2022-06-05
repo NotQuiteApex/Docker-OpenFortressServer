@@ -6,7 +6,7 @@ FROM steamcmd/steamcmd:alpine
 # RUN apk add --no-cache python3 py3-pip
 RUN apk add --no-cache curl
 
-# Install tooling (murse)
+# Install tooling (murse). This downloads Open Fortress for us.
 RUN curl -L https://dl.spiderden.net/murse/linux -o murse && chmod +x ./murse
 
 # Copy everything in.
@@ -23,7 +23,7 @@ RUN ~/symlink-binaries.sh
 # Insert server config defined in scripts.
 RUN mv -f ~/server.cfg ~/ofserver/sdk/open_fortress/cfg
 
-# Expose the SRCDS port.
+# Expose the SRCDS port. Purely for the -P cli argument.
 # People who run the container will still need to route the port themselves.
 EXPOSE 27015/tcp
 EXPOSE 27015/udp
