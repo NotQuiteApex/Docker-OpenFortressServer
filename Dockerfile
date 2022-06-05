@@ -10,17 +10,23 @@ RUN apk add --no-cache curl
 RUN curl -L https://dl.spiderden.net/murse/linux -o murse && chmod +x ./murse
 
 # Copy everything in.
-ADD ./scripts/ ./scripts/
+ADD ./scripts/* .
 
 # Install TF2 and Source SDK.
 RUN mkdir ~/ofserver/
-RUN ~/scripts/tf2sdk-update.sh
+RUN steamcmd +runscript ~/fullupdate.txt
 # Install Open Fortress.
 RUN ./murse upgrade ~/ofserver/sdk/open_fortress/
 # Link binaries.
-RUN ~/scripts/symlink-binaries.sh
+RUN ~/symlink-binaries.sh
+
+# Insert server config defined in scripts.
+RUN mv -f ~/server.cfg ~/ofserver/sdk/open_fortress/cfg
 
 # Expose the SRCDS port.
 # People who run the container will still need to route the port themselves.
 EXPOSE 27015/tcp
 EXPOSE 27015/udp
+
+# Lastly, set the entrypoint to be the run.sh script
+ENTRYPOINT [ "cd", "~/ofserver/sdk/", "&&", "./run.sh" ]
