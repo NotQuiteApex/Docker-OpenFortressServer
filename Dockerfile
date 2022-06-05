@@ -11,7 +11,7 @@ RUN apk add --no-cache curl
 RUN curl -L https://dl.spiderden.net/murse/linux -o murse && chmod +x ~/murse
 
 # Copy everything in.
-ADD ./scripts/* .
+ADD ./scripts/* ./
 
 # Install TF2 and Source SDK.
 RUN mkdir ~/ofserver/
