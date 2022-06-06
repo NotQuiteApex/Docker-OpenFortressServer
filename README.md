@@ -36,4 +36,6 @@ A: Having a compose file would be a lot nicer than having to type out a bunch of
 # License
 This project's code is licensed under the MIT license, copyright Logan "NotQuiteApex" Hickok-Dickson. See [LICENSE.md](LICENSE.md) for more details.
 
+This project pulls and uses assets belonging to multiple third-parties such as Valve Software or the Open Fortress dev team. These assets do not fall under the license described above.
+
 This project makes use of [murse](https://git.sr.ht/~welt/murse), a CLI tool for managing ToastVN projects such as Open Fortress. Please see its repo for more details on its license and attribution.

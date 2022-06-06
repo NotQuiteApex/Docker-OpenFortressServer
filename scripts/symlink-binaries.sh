@@ -16,3 +16,7 @@ cd -
 cd ~/ofserver/sdk/open_fortress/bin
 ln -s server.so server_srv.so
 cd -
+
+cd ~/ofserver/sdk/
+ln -s ~/.steam/steamcmd/steamcmd.sh ./steamcmd.sh
+cd -
