@@ -1,11 +1,11 @@
-version: "3.9"
+ersion: "3.9"
 
-services:
-  openfortress_server:
-    image: notquiteapex/openfortress_server
-    ports:
-      - "27015:27015/tcp"
-      - "27015:27015/udp"
-    volumes:
-      - ofserver:/root/ofserver
+ervices:
+ openfortress_server:
+   image: notquiteapex/openfortress_server
+   ports:
+     - "27015:27015/tcp"
+     - "27015:27015/udp"
+   volumes:
+     - ofserver:/root/ofserver
     

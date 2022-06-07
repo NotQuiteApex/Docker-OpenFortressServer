@@ -1,5 +1,5 @@
-# syntax=docker/dockerfile:1
-# Open Fortress server with SourceMod image.
-FROM notquiteapex/openfortress_server:latest
+ syntax=docker/dockerfile:1
+ Open Fortress server with SourceMod image.
+ROM notquiteapex/openfortress_server:latest
 
-# Nothin here but us fools.
+ Nothin here but us fools.
