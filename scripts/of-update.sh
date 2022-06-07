@@ -1,3 +1,3 @@
 #!/bin/sh
 # Updates Open Fortress.
-~/murse upgrade ~/ofserver/sdk/open_fortress/
+~/murse upgrade ~/server/sdk/open_fortress/ || exit 1

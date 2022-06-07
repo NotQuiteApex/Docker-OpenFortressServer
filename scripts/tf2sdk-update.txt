@@ -1,8 +1,8 @@
 @ShutdownOnFailedCommand 1
 @NoPromptForPassword 1
 login anonymous
-force_install_dir /root/ofserver/tf2
+force_install_dir /root/server/tf2
 app_update 232250
-force_install_dir /root/ofserver/sdk
+force_install_dir /root/server/sdk
 app_update 244310
 quit

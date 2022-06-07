@@ -6,7 +6,7 @@ do
 	echo "Starting Server."
 	./srcds_run -console -game open_fortress \
 		-insecure -timeout 0 -nohltv -autoupdate \
-		-steam_dir ~/ofserver/ -steamcmd_script ~/tf2sdk-update.txt \
+		-steam_dir /root/server/ -steamcmd_script /root/tf2sdk-update.txt \
 		|| exit 1
 	echo "Server exited."
 	

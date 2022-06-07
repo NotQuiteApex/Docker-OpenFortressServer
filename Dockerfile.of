@@ -1,0 +1,18 @@
+# syntax=docker/dockerfile:1
+# Open Fortress basic server image.
+FROM notquiteapex/openfortress_server:_tf2sdk
+
+# Download Open Fortress.
+RUN ~/of-update.sh
+
+# Symlink binary
+RUN cd ~/server/sdk/open_fortress/bin/ && \
+	ln -s server.so server_srv.so
+
+# Insert server config and start script defined in scripts.
+RUN mv -f ~/server.cfg ~/ofserver/sdk/open_fortress/cfg/ && \
+	mv -f ~/run.sh ~/ofserver/sdk/
+	
+# Lastly, set the entrypoint to be the run.sh script
+WORKDIR /root/ofserver/sdk/
+ENTRYPOINT [ "./run.sh" ]

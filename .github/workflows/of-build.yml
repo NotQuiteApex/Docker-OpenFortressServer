@@ -1,0 +1,31 @@
+name: Build Open Fortress images.
+
+on:
+  push:
+    branches: ["main"]
+  schedule:
+    - cron: '0 0 * * *'
+
+jobs:
+  openfortress_latest:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v2
+      - name: Docker Login
+        run: echo ${{ secrets.DOCKER_ACCESS_TOKEN }} | docker login -u ${{ secrets.DOCKER_USERNAME }} --password-stdin
+      - name: Docker Build
+        run: docker build . -t notquiteapex/openfortress_server:latest -f Dockerfile.of
+      - name: Docker Push
+        run: docker push notquiteapex/openfortress_server:latest
+  openfortress_latest-sm:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v2
+      - name: Docker Login
+        run: echo ${{ secrets.DOCKER_ACCESS_TOKEN }} | docker login -u ${{ secrets.DOCKER_USERNAME }} --password-stdin
+      - name: Docker Build
+        run: docker build . -t notquiteapex/openfortress_server:latest-sm -f Dockerfile.ofsm
+      - name: Docker Push
+        run: docker push notquiteapex/openfortress_server:latest-sm

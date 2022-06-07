@@ -2,7 +2,9 @@
 A Docker image to streamline and easily deploy new Open Fortress servers. Requires [Docker](https://docker.com/) to be installed. Based off the ["official server guide"](https://steamcommunity.com/sharedfiles/filedetails/?id=2090433448). The image is rebuilt automatically every night with all the latest updates for everything.
 
 # Tags
-* [`latest`](Dockerfile)
+* [`latest`](Dockerfile.of) - The latest basic server image of Open Fortress.
+* [`latest-sm`](Dockerfile.ofsm) - The latest server image of Open Fortress with SourceMod preinstalled. NOT WORKING YET.
+* [`_tf2sdk`](Dockerfile.base) - The base image that is used to build the above two builds, includes TF2 and SDK and necessary tooling. Does not update often. DO NOT USE UNLESS DEBUGGING. 
 
 # Deploying and Managing
 Images can be downloaded and run with `docker run -P -d notquiteapex/openfortress_server` in detached mode and with all the ports published from the container. It is recommended that you also create a volume to access the server files as necessary, such as custom content or server config, or setting up SourceMod.

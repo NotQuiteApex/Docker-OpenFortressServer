@@ -1,0 +1,35 @@
+# syntax=docker/dockerfile:1
+# Base image file, separate because SteamCMD, TF2, etc. do not update very often.
+FROM steamcmd/steamcmd:alpine
+WORKDIR /root/
+
+# Copy everything in.
+ADD ./scripts/* ./
+RUN mkdir ~/server/
+
+# Some dependencies to download.
+RUN apk add --no-cache curl
+# Install tooling (murse). This downloads Open Fortress for us.
+RUN curl -L https://dl.spiderden.net/murse/linux -o murse && chmod +x ~/murse
+
+# Install TF2 and SDK
+RUN steamcmd +runscript /root/tf2sdk-update.txt
+# Symlink binaries
+RUN cd ~/server/sdk/bin/ && \
+	ln -s datacache_srv.so datacache.so && \
+	ln -s dedicated_srv.so dedicated.so && \
+	ln -s engine_srv.so engine.so && \
+	ln -s materialsystem_srv.so materialsystem.so && \
+	ln -s replay_srv.so replay.so && \
+	ln -s scenefilecache_srv.so scenefilecache.so && \
+	ln -s shaderapiempty_srv.so shaderapiempty.so && \
+	ln -s soundemittersystem_srv.so soundemittersystem.so && \
+	ln -s studiorender_srv.so studiorender.so && \
+	ln -s vphysics_srv.so vphysics.so && \
+	cd ~/server/sdk/ && \
+	ln -s ~/.steam/steamcmd/steamcmd.sh ./steamcmd.sh
+
+# Expose the SRCDS port. Purely for the -P cli argument.
+# People who run the container will still need to route the port themselves.
+EXPOSE 27015/tcp
+EXPOSE 27015/udp
