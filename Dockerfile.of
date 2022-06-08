@@ -11,8 +11,8 @@ RUN cd ~/server/sdk/open_fortress/bin/ && \
 	ln -s server.so server_srv.so
 
 # Insert server config and start script defined in scripts.
-RUN mv -f ~/server.cfg ~/ofserver/sdk/open_fortress/cfg/ && \
-	mv -f ~/run.sh ~/ofserver/sdk/
+RUN mv -f ~/server.cfg ~/server/sdk/open_fortress/cfg/ && \
+	mv -f ~/run.sh ~/server/sdk/
 	
 # Lastly, set the entrypoint to be the run.sh script
 WORKDIR /root/ofserver/sdk/
