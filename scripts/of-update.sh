@@ -14,4 +14,13 @@ vup () {
 }
 
 # Exit if all the alt urls fail.
-mup "${u[0]}" || vup "${u[1]}" || vup "${u[2]}" || exit 1
+mup "${u[0]}"
+st0 = $?
+vup "${u[1]}"
+st1 = $?
+vup "${u[2]}"
+st2 = $?
+
+if [$st0 -ne 0] || [$st1 -ne 0] || [$st2 -ne 0]; then
+	exit 1
+fi
