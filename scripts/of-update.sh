@@ -1,12 +1,14 @@
 #!/bin/sh
 # Updates Open Fortress.
+url3="https://toast2.openfortress.fun/toast/"
+url3="https://toast3.openfortress.fun/toast/"
 
 mup () {
-	~/murse upgrade ~/server/sdk/open_fortress/ -u "https://toast.openfortress.fun/toast/"
+	~/murse upgrade ~/server/sdk/open_fortress/ -u $url3
 }
 
 vup () {
-	~/murse verify ~/server/sdk/open_fortress/ -r -u "https://toast.openfortress.fun/toast/"
+	~/murse verify ~/server/sdk/open_fortress/ -r -u $url2
 }
 
 # Exit if all the alt urls fail.
