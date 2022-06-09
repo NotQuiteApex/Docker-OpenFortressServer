@@ -1,12 +1,31 @@
-#!/bin/sh
+#!/usr/bin/env bash
 # Updates Open Fortress.
+declare -a u=( \
+	"https://toast1.openfortress.fun/toast/" \
+	"https://toast2.openfortress.fun/toast/" \
+	"https://toast3.openfortress.fun/toast/" )
 
-~/murse upgrade ~/server/sdk/open_fortress/ -u "https://toast3.openfortress.fun/toast/"
-st0 = $?
-~/murse verify ~/server/sdk/open_fortress/ -r -u "https://toast2.openfortress.fun/toast/"
-st1 = $?
+mup () {
+	~/murse upgrade ~/server/sdk/open_fortress/ -u "$1"
+}
 
-# Exit if all the alt urls fail.
-if [$st0 -ne 0] && [$st1 -ne 0]; then
-	exit 1
-fi
+vup () {
+	~/murse verify ~/server/sdk/open_fortress/ -r -u "$1"
+}
+
+for str in ${u[@]}; do
+	echo "Checking toast link: $str"
+	mup "$str"
+	if [ $? -ne 0 ]; then
+		echo "Toast link failed, trying next..."
+		continue
+	fi
+	echo "Verifying toast..."
+	vup "$str"
+	if [ $? -ne 0 ]; then
+		echo "Toast verify failed, trying next..."
+		continue
+	fi
+	echo "Verify success, exiting!"
+	exit 0
+done

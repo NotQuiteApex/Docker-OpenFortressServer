@@ -3,6 +3,8 @@
 FROM notquiteapex/openfortress_server:_tf2sdk
 WORKDIR /root/
 
+ADD ./scripts/of-update.sh .
+
 # Download Open Fortress.
 RUN ~/of-update.sh
 

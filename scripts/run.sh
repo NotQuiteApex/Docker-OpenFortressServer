@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 # Runs the server itself. Configure any server specific settings here.
 # Also updates the server whenever the server shuts down cleanly.
 while :
