@@ -1,5 +1,5 @@
 # Open Fortress Server with Docker
-A Docker image to streamline and easily deploy new Open Fortress servers. Requires [Docker](https://docker.com/) to be installed. Based off the ["official server guide"](https://steamcommunity.com/sharedfiles/filedetails/?id=2090433448). The image is rebuilt automatically every night with all the latest updates for everything.
+A Docker image to streamline and easily deploy new Open Fortress servers. Requires [Docker](https://docker.com/) to be installed. Based off the ["official server guide"](https://steamcommunity.com/sharedfiles/filedetails/?id=2090433448). The image is rebuilt automatically every night with all the latest updates for everything. This project is a heavy work in progress and should not be used long term just yet!
 
 # Tags
 * [`latest`](Dockerfile.of) - The latest basic server image of Open Fortress.
