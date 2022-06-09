@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 # Updates Open Fortress.
 declare -a u=( \
+	"https://toast.openfortress.fun/toast" \
 	"https://toast1.openfortress.fun/toast/" \
 	"https://toast2.openfortress.fun/toast/" \
 	"https://toast3.openfortress.fun/toast/" )
