@@ -29,3 +29,6 @@ for str in ${u[@]}; do
 	echo "Verify success, exiting!"
 	exit 0
 done
+
+echo "Failed to pull toast, failed..."
+exit 1
