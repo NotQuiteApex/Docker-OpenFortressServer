@@ -6,11 +6,11 @@ declare -a u=( \
 	"https://toast3.openfortress.fun/toast/" )
 
 mup () {
-	~/murse upgrade ~/server/sdk/open_fortress/ -u "$arg1"
+	~/murse upgrade ~/server/sdk/open_fortress/ -u "$1"
 }
 
 vup () {
-	~/murse verify ~/server/sdk/open_fortress/ -u "$arg1" -r
+	~/murse verify ~/server/sdk/open_fortress/ -u "$1" -r
 }
 
 # Exit if all the alt urls fail.
