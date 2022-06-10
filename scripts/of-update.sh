@@ -8,13 +8,13 @@ declare -a u=( \
 
 for str in ${u[@]}; do
 	echo "Checking toast link: $str"
-	~/murse upgrade ~/server/sdk/open_fortress/ -u "$str"
+	./murse upgrade ./sdk/open_fortress/ -u "$str"
 	if [ $? -ne 0 ]; then
 		echo "Toast link failed, trying next..."
 		continue
 	fi
 	echo "Verifying toast..."
-	~/murse verify ~/server/sdk/open_fortress/ -r -u "$str"
+	./murse verify ./sdk/open_fortress/ -r -u "$str"
 	if [ $? -ne 0 ]; then
 		echo "Toast verify failed, trying next..."
 		continue

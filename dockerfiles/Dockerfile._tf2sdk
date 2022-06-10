@@ -4,18 +4,18 @@ FROM steamcmd/steamcmd:alpine
 WORKDIR /root/
 
 # Copy everything in.
-ADD ./scripts/* ./
-RUN mkdir ~/server/
+WORKDIR /root/.steam/steamcmd/
+ADD ./scripts/* .
 
 # Some dependencies to download.
 RUN apk add --no-cache curl
 # Install tooling (murse). This downloads Open Fortress for us.
-RUN curl -L https://dl.spiderden.net/murse/linux -o murse && chmod +x ~/murse
+RUN curl -L https://dl.spiderden.net/murse/linux -o murse && chmod +x ./murse
 
 # Install TF2 and SDK
-RUN steamcmd +runscript /root/tf2sdk-update.txt
+RUN steamcmd +runscript ./tf2sdk-update.txt
 # Symlink binaries
-RUN cd ~/server/sdk/bin/ && \
+RUN cd ./sdk/bin/ && \
 	ln -s datacache_srv.so datacache.so && \
 	ln -s dedicated_srv.so dedicated.so && \
 	ln -s engine_srv.so engine.so && \
@@ -25,9 +25,7 @@ RUN cd ~/server/sdk/bin/ && \
 	ln -s shaderapiempty_srv.so shaderapiempty.so && \
 	ln -s soundemittersystem_srv.so soundemittersystem.so && \
 	ln -s studiorender_srv.so studiorender.so && \
-	ln -s vphysics_srv.so vphysics.so && \
-	cd ~/server/sdk/ && \
-	ln -s ~/.steam/steamcmd/steamcmd.sh ./steamcmd.sh
+	ln -s vphysics_srv.so vphysics.so
 
 # Expose the SRCDS port. Purely for the -P cli argument.
 # People who run the container will still need to route the port themselves.
