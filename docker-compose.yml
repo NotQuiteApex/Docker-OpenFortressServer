@@ -2,10 +2,9 @@ version: "3.9"
 
 services:
   openfortress_server:
-    image: notquiteapex/openfortress_server
+    image: notquiteapex/openfortress_server:latest
     ports:
       - "27015:27015/tcp"
       - "27015:27015/udp"
     volumes:
-      - ofserver:/root/ofserver
-    
+      - ./server:/root/server
