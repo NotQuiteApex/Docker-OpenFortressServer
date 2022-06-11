@@ -4,7 +4,7 @@ FROM steamcmd/steamcmd:alpine
 
 # Copy everything in.
 WORKDIR /root/.steam/steamcmd/
-ADD ./scripts/* .
+ADD ./scripts/* ./
 
 # Some dependencies to download.
 RUN apk add --no-cache curl
