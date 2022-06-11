@@ -2,7 +2,7 @@
 # Open Fortress basic server image.
 FROM notquiteapex/openfortress_server:_tf2sdk
 
-ADD ./scripts/ .
+ADD ./scripts/* ./
 
 # Download Open Fortress.
 RUN ./of-update.sh
@@ -16,4 +16,4 @@ RUN mv -f ./server.cfg ./sdk/open_fortress/cfg/ && \
 	mv -f ./run.sh ./sdk/
 	
 # Lastly, set the entrypoint to be the run.sh script
-ENTRYPOINT [ "./sdk/run.sh" ]
+ENTRYPOINT [ "/root/.steam/steamcmd/sdk/run.sh" ]
