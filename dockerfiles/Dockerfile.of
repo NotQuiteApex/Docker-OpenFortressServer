@@ -13,6 +13,9 @@ RUN cd ./sdk/open_fortress/bin/ && \
 
 # Insert server config and start script defined in scripts.
 RUN mv -f ./server.cfg ./sdk/open_fortress/cfg/
+
+# Update gameinfo.txt
+RUN sed -i 's+|all_source_engine_paths|..\\Team Fortress 2\\+/root/.steam/steamcmd/tf2/+g' ./sdk/open_fortress/gameinfo.txt
 	
 # Lastly, set the entrypoint to be the run.sh script
 ENTRYPOINT [ "bash" ]
