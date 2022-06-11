@@ -1,7 +1,6 @@
 # syntax=docker/dockerfile:1
 # Open Fortress basic server image.
 FROM notquiteapex/openfortress_server:_tf2sdk
-WORKDIR /root/
 
 ADD ./scripts/ .
 
