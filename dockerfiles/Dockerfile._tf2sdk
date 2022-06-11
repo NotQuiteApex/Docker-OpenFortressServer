@@ -1,7 +1,6 @@
 # syntax=docker/dockerfile:1
 # Base image file, separate because SteamCMD, TF2, etc. do not update very often.
 FROM steamcmd/steamcmd:alpine
-WORKDIR /root/
 
 # Copy everything in.
 WORKDIR /root/.steam/steamcmd/
