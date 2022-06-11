@@ -1,13 +1,16 @@
 # syntax=docker/dockerfile:1
 # Base image file, separate because SteamCMD, TF2, etc. do not update very often.
-FROM steamcmd/steamcmd:alpine
+FROM steamcmd/steamcmd:latest
 
 # Copy everything in.
 WORKDIR /root/.steam/steamcmd/
-ADD ./scripts/* ./
+ADD ./scripts/tf2sdk-update.txt ./
 
 # Some dependencies to download.
-RUN apk add --no-cache curl
+RUN dpkg --add-architecture i386 && apt-get update && \
+	apt-get install -y lib32gcc1 libstdc++6 libstdc++6:i386 && \
+	apt-get install -y libncurses5:i386 libtinfo5:i386 libcurl4-gnutls-dev:i386 && \
+	apt-get install -y curl
 # Install tooling (murse). This downloads Open Fortress for us.
 RUN curl -L https://dl.spiderden.net/murse/linux -o murse && chmod +x ./murse
 

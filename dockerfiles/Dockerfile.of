@@ -12,8 +12,8 @@ RUN cd ./sdk/open_fortress/bin/ && \
 	ln -s server.so server_srv.so
 
 # Insert server config and start script defined in scripts.
-RUN mv -f ./server.cfg ./sdk/open_fortress/cfg/ && \
-	mv -f ./run.sh ./sdk/
+RUN mv -f ./server.cfg ./sdk/open_fortress/cfg/
 	
 # Lastly, set the entrypoint to be the run.sh script
-ENTRYPOINT [ "/root/.steam/steamcmd/sdk/run.sh" ]
+ENTRYPOINT [ "bash" ]
+#CMD [ "./run.sh" ]
