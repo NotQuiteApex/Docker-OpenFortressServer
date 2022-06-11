@@ -7,4 +7,4 @@ services:
       - "27015:27015/tcp"
       - "27015:27015/udp"
     volumes:
-      - ./server:/root/server
+      - ./server:/root/.steam/steamcmd

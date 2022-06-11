@@ -2,7 +2,7 @@ name: Build OFServer base image with TF2+SDK.
 
 on:
   schedule:
-    - cron: "0 23 * * *"
+    - cron: "0 0 * * 0"
 
 jobs:
   openfortress_tf2sdk:
