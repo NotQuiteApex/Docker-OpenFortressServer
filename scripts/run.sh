@@ -3,13 +3,6 @@
 # Also updates the server whenever the server shuts down cleanly.
 while :
 do
-	echo "Starting Server."
-	./sdk/srcds_run -console -game open_fortress \
-		-secure -timeout 0 -nohltv || \
-		exit 1
-
-	echo "Server exited."
-
 	echo "Updating TF2 + SDK."
 	until steamcmd +runscript ./tf2sdk-update.txt
 	do
@@ -25,4 +18,14 @@ do
 		sleep 5
 	done
 	echo "Open Fortress update finished."
+
+	echo "Starting Server."
+	./sdk/srcds_run -console -game open_fortress \
+		-secure -timeout 0 -nohltv
+	if [$? -eq 1] || [$? -eq 130]; then
+		echo "Something went wrong, the server may have crashed."
+		echo "Please check the logs before starting back up."
+		exit 1
+	fi
+	echo "Server exited."
 done
