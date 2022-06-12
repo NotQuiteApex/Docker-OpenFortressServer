@@ -2,12 +2,23 @@ version: "3.9"
 
 services:
   ofserv:
+    # This is the image that the container will use to run the server. The string after the colon is
+    # the tag, which can be either `latest` or `latest-sm`. The first tag is a basic Open Fortress
+    # server with no extra plugins or maps installed. The second tag installs SourceMod with all the
+    # necessary components to work with Open Fortress, used for running plugins like RTV.
     image: notquiteapex/openfortress_server:latest
+
+    # These are the ports necessary for server operation. These allow the
+    # container to communicate with the host computer through these ports.
+    # You will still need to configure port forwarding yourself.
     ports:
       - "27015:27015/tcp"
       - "27015:27015/udp"
+      - "27005:27005/tcp"
+      - "27005:27005/udp"
+
     volumes:
-      - files:/root/.steam/steamcmd
+      - sv_cfg:/root/.steam/steamcmd/
 
 volumes:
     files:
