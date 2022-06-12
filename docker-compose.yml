@@ -21,4 +21,4 @@ services:
       - sv_cfg:/root/.steam/steamcmd/
 
 volumes:
-    files:
+  sv_cfg:
