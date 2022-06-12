@@ -13,13 +13,16 @@ for str in ${u[@]}; do
 		echo "Toast link failed, trying next..."
 		continue
 	fi
-	echo "Verifying toast..."
-	./murse verify ./sdk/open_fortress/ -r -u "$str"
-	if [ $? -ne 0 ]; then
-		echo "Toast verify failed, trying next..."
-		continue
-	fi
-	echo "Verify success, exiting!"
+	echo "Download complete."
+	# Verifying is disabled for now until .murse_ignore is implemented and can
+	# properly ignore important files like gameinfo.txt being edited as necessary.
+	#echo "Verifying toast..."
+	#./murse verify ./sdk/open_fortress/ -r -u "$str"
+	#if [ $? -ne 0 ]; then
+	#	echo "Toast verify failed, trying next..."
+	#	continue
+	#fi
+	#echo "Verify success, exiting!"
 	exit 0
 done
 

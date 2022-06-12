@@ -2,4 +2,8 @@
 # Open Fortress server with SourceMod image.
 FROM notquiteapex/openfortress_server:latest
 
+RUN curl -L https://sm.alliedmods.net/smdrop/1.11/sourcemod-1.11.0-git6888-linux.tar.gz -o sourcemod.tar.gz && \
+	curl -L https://mms.alliedmods.net/mmsdrop/1.11/mmsource-1.11.0-git1145-linux.tar.gz -o metamod.tar.gz && \
+	curl -L https://github.com/brysondev/Open-Fortress-Tools/archive/refs/heads/master.zip -o oftools.zip
+
 # Nothin here but us fools.

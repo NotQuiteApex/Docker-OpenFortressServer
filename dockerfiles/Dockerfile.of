@@ -19,4 +19,4 @@ RUN sed -i 's+|all_source_engine_paths|..\\Team Fortress 2\\+/root/.steam/steamc
 	
 # Lastly, set the entrypoint to be the run.sh script
 ENTRYPOINT [ "bash" ]
-CMD [ "./run.sh" ]
+CMD [ "/root/.steam/steamcmd/run.sh" ]

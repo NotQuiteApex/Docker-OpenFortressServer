@@ -4,7 +4,7 @@ FROM steamcmd/steamcmd:latest
 
 # Copy everything in.
 WORKDIR /root/.steam/steamcmd/
-ADD ./scripts/tf2sdk-update.txt ./
+ADD ./scripts/* ./
 
 # Some dependencies to download.
 RUN dpkg --add-architecture i386 && apt-get update && \
