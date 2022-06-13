@@ -16,9 +16,12 @@ services:
       - "27015:27015/udp"
       - "27005:27005/tcp"
       - "27005:27005/udp"
+    
+    # Note to self, expose bind mounts for custom folder, a special cfg folder,
+    # and folder for SM plugins.
 
-    volumes:
-      - sv_cfg:/root/.steam/steamcmd/
+#     volumes:
+#       - sv_cfg:/root/.steam/steamcmd/
 
-volumes:
-  sv_cfg:
+# volumes:
+#   sv_cfg:
