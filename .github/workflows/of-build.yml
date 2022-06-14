@@ -9,7 +9,6 @@ on:
 jobs:
   openfortress_latest:
     runs-on: ubuntu-latest
-    needs: openfortress_tf2sdk
     steps:
       - name: Checkout repo
         uses: actions/checkout@v2
