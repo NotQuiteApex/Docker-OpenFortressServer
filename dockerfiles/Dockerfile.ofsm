@@ -10,4 +10,4 @@ RUN curl -L https://sm.alliedmods.net/smdrop/1.11/sourcemod-1.11.0-git6889-linux
 
 RUN tar -xvzf ./sourcemod.tar.gz -C ./sdk/open_fortress/
 RUN tar -xvzf ./metamod.tar.gz -C ./sdk/open_fortress/
-RUN unzip ./oftools.zip -d ./sdk/open_fortress/addons/sourcemod/
+RUN unzip ./oftools.zip && mv ./Open-Fortress-Tools-main/* ./sdk/open_fortress/addons/sourcemod/
