@@ -1,12 +1,12 @@
 version: "3.9"
 
 services:
-  ofserv:
+  ofsv:
     # This is the image that the container will use to run the server. The string after the colon is
     # the tag, which can be either `latest` or `latest-sm`. The first tag is a basic Open Fortress
     # server with no extra plugins or maps installed. The second tag installs SourceMod with all the
     # necessary components to work with Open Fortress, used for running plugins like RTV.
-    image: notquiteapex/openfortress_server:latest
+    image: notquiteapex/ofsv:latest
     
     # These are volumes for accessing specific aspects of your server, such as the config folder,
     # the custom folder, and the sourcemod folder. The last volume will not work if you do not have

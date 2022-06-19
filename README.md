@@ -1,39 +1,28 @@
 # Open Fortress Server with Docker
-A Docker image to streamline and easily deploy new Open Fortress servers. Requires [Docker](https://docker.com/) to be installed. Based off the ["official server guide"](https://steamcommunity.com/sharedfiles/filedetails/?id=2090433448). The image is rebuilt automatically every night with all the latest updates for everything. This project is a heavy work in progress and should not be used long term just yet!
+A Docker image to streamline and easily deploy new Open Fortress servers. Requires [Docker](https://docker.com/) to be installed. Based off the ["official server guide"](https://steamcommunity.com/sharedfiles/filedetails/?id=2090433448). The image is rebuilt automatically every night with all the latest updates for everything.
 
 # Tags
 * [`latest`](Dockerfile.of) - The latest basic server image of Open Fortress.
-* [`latest-sm`](Dockerfile.ofsm) - The latest server image of Open Fortress with SourceMod preinstalled. NOT WORKING YET.
-* [`_tf2sdk`](Dockerfile.base) - The base image that is used to build the above two builds, includes TF2 and SDK and necessary tooling. Does not update often. DO NOT USE UNLESS DEBUGGING. 
+* [`latest-sm`](Dockerfile.ofsm) - The latest server image of Open Fortress with SourceMod preinstalled.
+* [`_tf2sdk`](Dockerfile.base) - The base image that is used to build the above two builds, includes TF2 and SDK and necessary tooling. Does not update often. DO NOT USE UNLESS DEBUGGING.
 
-# Deploying and Managing
-Images can be downloaded and run with `docker run -P -d notquiteapex/openfortress_server` in detached mode and with all the ports published from the container. It is recommended that you also create a volume to access the server files as necessary, such as custom content or server config, or setting up SourceMod.
+# Simple Guide - Setting up and deploying a simple server
+0. First off, you'll want to [install Docker](https://docs.docker.com/engine/install/), this tutorial assumes you will be using Docker on some flavor of Linux, and know some basic stuff about Linux.
+0. Next, you'll want to clone/download this repo, cd into the cloned repo and run `docker compose up` to run the server attached to your terminal.
+0. The server will start up, first updating TF2 and the SDK, then Open Fortress, and then properly start the server. You will see a message about root access, this is safe to ignore. 
+0. The output may appear frozen after a bit, at that point the server has likely started and you can connect; due to the way Source engine outputs console info the output in Docker may not update with what is happening with the server.
+0. Send a keyboard interrupt to stop the server.
 
-Whenever the server is stopped cleanly (like when using the quit command and not from a crash), Open Fortress, TF2, and the Source SDK will update in that order before the server brings itself back up.
+Notes:
+- If you want to run the server detached, you can run `docker compose up -d` to detach it from your terminal; you'll want to run `docker compose stop` if you want to stop the server if it's detached.
+- You can access the server's files with the volumes created by Docker in the `/var/lib/docker/volumes/` directory, although you will need superuser/root access to manage them (this is a limitation of Docker).
+- You can run `docker compose down` to remove the container and volumes for the server.
+- You will still need to forward the ports 27005 and 27015 yourself on your router.
 
-You will still need to forward the ports on your router yourself.
+# Expert Guide - SourceMod, custom content, and more
+If you know Docker pretty well or need some specific changes, you can change the [docker-compose.yml](docker-compose.yml). For example, if you'd like to run the server with SourceMod for plugins and better server management, edit the compose file to change the image tag from "latest" to "latest-sm".
 
-# FAQ
-Q: How do I use this? How do I do X? Why won't this work now?
-
-A: This repo assumes you can do a few things: clone a Git repo, and download and use Docker. Support won't be offered otherwise. If you want to learn then Google is your friend, and I highly encourage you to learn!
-
-Also, if this image no longer works it is likely due to something outside of my control. Things change as projects grow and Open Fortress has changed a lot from using GitHub to SVN to ToastVN meaning tools may just not work anymore, I will not and cannot guarantee support into the foreseeable future.
-
----
-Q: Why do all this?
-
-A: I don't have the ability to run servers 24/7 and have limited server space. Maintaining a build system for bringing everything together is much easier than trying to walk through the tutorial every time.
-
----
-Q: Is SourceMod built in?
-
-A: Currently it is not, but I plan to add a new tag for the image in the future with SourceMod already installed for you. For now you'll need to install it yourself.
-
----
-Q: What's the docker-compose.yml for?
-
-A: Having a compose file would be a lot nicer than having to type out a bunch of commands and arguments to get everything nicely set up for you like ports and volumes, the end goal is to only have to need to run `docker compose up` in a cloned repo and everything would be set up for you. It is not currently supported as I am still learning about the nuances of compose.
+To add/edit files to/on your server, certain directories for the server are exposed as Docker volumes, accessible at the `/var/lib/docker/volumes/` directory. There are volumes for the custom folder, config folder, and SourceMod plugins folder.
 
 # License
 This project's code is licensed under the MIT license, copyright Logan "NotQuiteApex" Hickok-Dickson. See [LICENSE.md](LICENSE.md) for more details.
