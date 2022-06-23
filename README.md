@@ -27,6 +27,6 @@ To add/edit files to/on your server, certain directories for the server are expo
 # License
 This project's code is licensed under the MIT license, copyright Logan "NotQuiteApex" Hickok-Dickson. See [LICENSE.md](LICENSE.md) for more details.
 
-This project pulls and uses assets belonging to multiple third-parties such as Valve Software or the Open Fortress dev team. These assets do not fall under the license described above.
+This project pulls and uses assets belonging to multiple third-parties such as Valve Software or the Open Fortress dev team. These assets do not fall under the license described above, and are subject to any terms described by the respective license holder(s).
 
-This project makes use of [murse](https://git.sr.ht/~welt/murse), a CLI tool for managing ToastVN projects such as Open Fortress. Please see its repo for more details on its license and attribution.
+This project makes use of [murse](https://git.sr.ht/~welt/murse), a CLI tool for managing Toast projects such as Open Fortress. Please see its repo for more details on its license and attribution.
