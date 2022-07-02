@@ -24,7 +24,7 @@ If you know Docker pretty well or need some specific changes to the setup, you c
 
 To add/edit files to/on your server, certain directories for the server are exposed as Docker volumes, accessible at the `/var/lib/docker/volumes/` directory. There are volumes for the custom folder, cfg folder, and SourceMod folder, and you can use these to create more personalized servers for Open Fortress.
 
-The Open Fortress Docker Image bases the image off itself to simply update the files of the game. This is done with the Dockerfile.ofcache in the dockerfiles folder, however if you need to build the image from scratch the Dockerfile.of will be what you need to use.
+The Open Fortress Docker Image bases the image off itself to simply update the files of the game. This is done with the Dockerfile.of file in the dockerfiles folder, however if you need to build the image from scratch the Dockerfile.cache file will be what you need to use.
 
 # License
 This project's code is licensed under the MIT license, copyright Logan "NotQuiteApex" Hickok-Dickson. See [LICENSE.md](LICENSE.md) for more details.

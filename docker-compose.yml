@@ -7,6 +7,8 @@ services:
     # server with no extra plugins or maps installed. The second tag installs SourceMod with all the
     # necessary components to work with Open Fortress, used for running plugins like RTV.
     image: notquiteapex/ofsv:latest
+    stdin_open: true
+    tty: true
     
     # These are volumes for accessing specific aspects of your server, such as the config folder,
     # the custom folder, and the sourcemod folder. The last volume will not work if you do not have

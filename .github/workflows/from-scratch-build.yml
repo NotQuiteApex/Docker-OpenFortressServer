@@ -7,7 +7,7 @@ on:
     - cron: '0 0 1 * *'
 
 jobs:
-  openfortress_tf2sdk:
+  openfortress_cache:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repo
