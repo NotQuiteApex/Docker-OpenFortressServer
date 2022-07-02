@@ -14,17 +14,18 @@ for str in ${u[@]}; do
 		continue
 	fi
 	echo "Download complete."
-	# Verifying is disabled for now until .murse_ignore is implemented and can
-	# properly ignore important files like gameinfo.txt being edited as necessary.
-	#echo "Verifying toast..."
-	#./murse verify ./sdk/open_fortress/ -r -u "$str"
-	#if [ $? -ne 0 ]; then
-	#	echo "Toast verify failed, trying next..."
-	#	continue
-	#fi
-	#echo "Verify success, exiting!"
+	echo "Verifying toast..."
+	./murse verify ./sdk/open_fortress/ -r -u "$str"
+	if [ $? -ne 0 ]; then
+		echo "Toast verify failed, trying next..."
+		continue
+	fi
+	echo "Verify success, exiting!"
 	exit 0
 done
+
+# Update gameinfo.txt
+sed -i 's+|all_source_engine_paths|..\\Team Fortress 2\\+/root/.steam/steamcmd/tf2/+g' ./sdk/open_fortress/gameinfo.txt
 
 echo "Failed to pull toast, exiting..."
 exit 1
