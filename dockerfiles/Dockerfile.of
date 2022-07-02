@@ -1,5 +1,6 @@
 # syntax=docker/dockerfile:1
 # Open Fortress basic server image.
+# This builds Open Fortress *from scratch*, not caching from an original image.
 FROM notquiteapex/ofsv:_tf2sdk
 
 ADD ./scripts/* ./
