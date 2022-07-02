@@ -1,21 +1,13 @@
 # syntax=docker/dockerfile:1
 # Open Fortress basic server image.
-# This builds Open Fortress *from scratch*, not caching from an original image.
-FROM notquiteapex/ofsv:_tf2sdk
+# This builds Open Fortress from a cached image, only updating files as necessary.
+FROM notquiteapex/ofsv:_cache
 
-ADD ./scripts/* ./
+# Update scripts
+ADD ./scripts/*.sh ./
+ADD ./scripts/*.txt ./
 
-# Download Open Fortress.
+# Update Open Fortress.
 RUN ./of-update.sh
 
-# Symlink binary
-RUN cd ./sdk/open_fortress/bin/ && \
-	ln -s server.so server_srv.so
-
-# Insert server config and start script defined in scripts.
-RUN mv -f ./server.cfg ./sdk/open_fortress/cfg/
-RUN mv -f ./autoexec.cfg ./sdk/open_fortress/cfg/
-
-# Lastly, set the entrypoint to be the run.sh script
-ENTRYPOINT [ "bash" ]
-CMD [ "/root/.steam/steamcmd/run.sh" ]
+# Done.
