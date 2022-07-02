@@ -13,9 +13,9 @@ services:
     # sourcemod installed on your server. These volumes are accessible in /var/lib/docker/volumes on
     # Linux, and you can edit your files so long as you have root permissions (sudo).
     volumes:
-      - sv_config:/root/.steam/steamcmd/sdk/open_fortress/cfg
-      - sv_custom:/root/.steam/steamcmd/sdk/open_fortress/custom
-      - sv_plugin:/root/.steam/steamcmd/sdk/open_fortress/addons/sourcemod
+      - cfg:/root/.steam/steamcmd/sdk/open_fortress/cfg
+      - cstm:/root/.steam/steamcmd/sdk/open_fortress/custom
+      - sm:/root/.steam/steamcmd/sdk/open_fortress/addons/sourcemod
 
     # These are the ports necessary for server operation. These allow the container to communicate
     # with the host computer through these ports. You will still need to forward the ports yourself.
@@ -27,6 +27,6 @@ services:
       - "27005:27005/udp"
 
 volumes:
-  sv_config:
-  sv_custom:
-  sv_plugin:
+  cfg:
+  cstm:
+  sm:
