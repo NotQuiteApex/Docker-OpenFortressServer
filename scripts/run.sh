@@ -21,7 +21,7 @@ do
 
 	echo "Starting Server."
 	./sdk/srcds_run -console -game open_fortress \
-		-secure -timeout 0 -nobreakpad +map dm_2fort
+		-secure -timeout 0 -nobreakpad -exec autoexec
 	EXITCODE=$?
 	if [$EXITCODE -eq 1] || [$EXITCODE -eq 130]; then
 		echo "Something went wrong, the server may have crashed."
