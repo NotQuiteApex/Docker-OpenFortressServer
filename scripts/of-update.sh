@@ -20,12 +20,13 @@ for str in ${u[@]}; do
 		echo "Toast verify failed, trying next..."
 		continue
 	fi
-	echo "Verify success, exiting!"
+	echo "Verify success."
+
+	echo "Fixing gameinfo.txt"
+	sed -i 's+|all_source_engine_paths|..\\Team Fortress 2\\+/root/.steam/steamcmd/tf2/+g' ./sdk/open_fortress/gameinfo.txt
+
+	echo "Install complete, exiting."
 	exit 0
 done
-
-# Update gameinfo.txt
-sed -i 's+|all_source_engine_paths|..\\Team Fortress 2\\+/root/.steam/steamcmd/tf2/+g' ./sdk/open_fortress/gameinfo.txt
-
 echo "Failed to pull toast, exiting..."
 exit 1
