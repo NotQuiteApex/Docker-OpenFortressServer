@@ -1,4 +1,4 @@
-name: Build Open Fortress images.
+name: Build Open Fortress images with cached images.
 
 on:
   push:
