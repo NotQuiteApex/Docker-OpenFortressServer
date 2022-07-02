@@ -6,7 +6,4 @@ FROM notquiteapex/ofsv:latest
 # Update Open Fortress.
 RUN ./of-update.sh
 
-# Update gameinfo.txt
-RUN sed -i 's+|all_source_engine_paths|..\\Team Fortress 2\\+/root/.steam/steamcmd/tf2/+g' ./sdk/open_fortress/gameinfo.txt
-
 # Done.
