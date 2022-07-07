@@ -1,10 +1,10 @@
 # Open Fortress Server with Docker
-A Docker image to streamline and easily deploy new Open Fortress servers. Requires [Docker](https://docker.com/) to be installed. Based off the ["official server guide"](https://steamcommunity.com/sharedfiles/filedetails/?id=2090433448). The image is rebuilt automatically every night with all the latest updates for everything.
+A Docker image to streamline and easily deploy new Open Fortress servers. Requires [Docker](https://docker.com/) to be installed. Based off the old [official Linux server guide](https://steamcommunity.com/sharedfiles/filedetails/?id=2090433448). The image is rebuilt automatically every week on Sunday with all the latest updates for everything.
 
 # Tags
-* [`latest`](Dockerfile.of) - The latest basic server image of Open Fortress.
-* [`latest-sm`](Dockerfile.ofsm) - The latest server image of Open Fortress with SourceMod preinstalled.
-* [`_tf2sdk`](Dockerfile.base) - The base image that is used to build the above two builds, includes TF2 and SDK and necessary tooling. Does not update often. DO NOT USE UNLESS DEBUGGING.
+* [`latest`](Dockerfile.of) - The latest basic server image of Open Fortress, with all files updated weekly.
+* [`latest-sm`](Dockerfile.ofsm) - The latest server image of Open Fortress with SourceMod preinstalled, with all files updated weekly.
+* [`_cache`](Dockerfile.cache) - The base image that is used to build the above two builds, includes TF2, Source SDK 2013 MP Base, and Open Fortress. Does not update often. DO NOT USE UNLESS DEBUGGING.
 
 # Simple Guide - Setting up and deploying a simple server
 0. First off, you'll want to [install Docker](https://docs.docker.com/engine/install/), this tutorial assumes you will be using Docker on some flavor of Linux, and know some basic stuff about Linux.
@@ -31,4 +31,4 @@ This project's code is licensed under the MIT license, copyright Logan "NotQuite
 
 This project pulls and uses assets belonging to multiple third-parties such as Valve Software or the Open Fortress dev team. These assets do not fall under the license described above, and are subject to any terms described by the respective license holder(s).
 
-This project makes use of [murse](https://git.sr.ht/~welt/murse), a CLI tool for managing Toast projects such as Open Fortress. Please see its repo for more details on its license and attribution.
+This project makes use of [murse](https://git.sr.ht/~welt/murse), a CLI tool developed by Welt for managing Toast projects such as Open Fortress. Please see its repo for more details on its license and attribution.
