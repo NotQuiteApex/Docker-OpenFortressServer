@@ -38,8 +38,6 @@ RUN cd ./sdk/open_fortress/bin/ && \
 # Insert server config and start script defined in scripts.
 RUN mv -f ./server.cfg ./sdk/open_fortress/cfg/
 RUN mv -f ./autoexec.cfg ./sdk/open_fortress/cfg/
-RUN mv -f ./motd_default.txt ./sdk/open_fortress/cfg/
-# Use a custom MOTD until an update is pushed to properly use the alt. URL
 
 # Lastly, set the entrypoint to be the run.sh script
 ENTRYPOINT [ "bash" ]
