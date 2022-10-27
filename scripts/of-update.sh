@@ -3,7 +3,6 @@
 declare -a u=( \
 	"https://toast.openfortress.fun/toast" \
 	"https://toast1.openfortress.fun/toast/" \
-	"https://toast2.openfortress.fun/toast/" \
 	"https://toast3.openfortress.fun/toast/" )
 
 for str in ${u[@]}; do
@@ -24,6 +23,9 @@ for str in ${u[@]}; do
 
 	echo "Fixing gameinfo.txt"
 	sed -i 's+|all_source_engine_paths|..\\Team Fortress 2\\+/root/.steam/steamcmd/tf2/+g' ./sdk/open_fortress/gameinfo.txt
+
+	echo "Removing C++ binary"
+	rm ./sdk/bin/libstdc++.so.6
 
 	echo "Install complete, exiting."
 	exit 0
