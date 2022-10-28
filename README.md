@@ -1,5 +1,5 @@
 # Open Fortress Server with Docker
-A Docker image to streamline and easily deploy new Open Fortress servers. Requires [Docker](https://docker.com/) to be installed. Based off the old [official Linux server guide](https://steamcommunity.com/sharedfiles/filedetails/?id=2090433448). The image is rebuilt automatically every week on Sunday with all the latest updates for everything.
+A Docker image to streamline and easily deploy new Open Fortress servers. Requires [Docker](https://docker.com/) to be installed. Based off the old [official Linux server guide](https://web.archive.org/web/20210602043159/https://steamcommunity.com/sharedfiles/filedetails/?id=2090433448). The image is rebuilt automatically every week on Sunday with all the latest updates for everything.
 
 # Tags
 * [`latest`](Dockerfile.of) - The latest basic server image of Open Fortress, with all files updated weekly.
@@ -8,7 +8,7 @@ A Docker image to streamline and easily deploy new Open Fortress servers. Requir
 
 # Simple Guide - Setting up and deploying a simple server
 0. First off, you'll want to [install Docker](https://docs.docker.com/engine/install/), this tutorial assumes you will be using Docker on some flavor of Linux, and know some basic stuff about Linux.
-0. Next, you'll want to clone/download this repo, cd into the cloned repo and run `docker compose up` to run the server attached to your terminal.
+0. Next, you'll want to clone/download this repo, cd into the cloned repo, run `mkdir of_cfg of_custom of_sourcemod` to create server accessible directories for configuring, then `docker compose up` to run the server attached to your terminal.
 0. The server will start up, first updating TF2 and the SDK, then Open Fortress, and then properly start the server. You will see a message about root access, this is safe to ignore. You may also see a message about no map being specified, this is safe to ignore if a map is selected in autoexec.cfg (which there is by default, dm_2fort).
 0. The output will say what its public IP is, indicating that the server is up and running an accessible. You can send a keyboard interrupt (ctrl+c) to stop the server.
 
@@ -21,9 +21,9 @@ Notes:
 # Expert Guide - SourceMod, custom content, and more
 If you know Docker pretty well or need some specific changes to the setup, you can change the [docker-compose.yml](docker-compose.yml). For example, if you'd like to run the server with SourceMod for plugins and better server management, edit the compose file to change the image tag from "latest" to "latest-sm".
 
-To add/edit files to/on your server, certain directories for the server are exposed as Docker volumes, accessible at the `/var/lib/docker/volumes/` directory. There are volumes for the custom folder, cfg folder, and SourceMod folder, and you can use these to create more personalized servers for Open Fortress.
+To add/edit files to/on your server, certain directories for the server are exposed as Docker volumes. If using the default [docker-compose.yml](docker-compose.yml), these folders are `of_cfg`, `of_custom`, and `of_sourcemod` for useful server directories you might want to edit and add files to. They are analogous to the server's cfg folder, custom folder, and sourcemod folder respectively.
 
-The Open Fortress Docker Image bases the image off itself to simply update the files of the game. This is done with the Dockerfile.of file in the dockerfiles folder, however if you need to build the image from scratch the Dockerfile.cache file will be what you need to use.
+The Open Fortress Docker Image bases the image off itself to simply update the files of the game. This is done with the [Dockerfile.of](dockerfiles/Dockerfile.of) file in the dockerfiles folder, however if you need to build the image from scratch the [Dockerfile.cache](dockerfiles/Dockerfile.cache) file will be what you need to use.
 
 # License
 This project's code is licensed under the MIT license, copyright Logan "NotQuiteApex" Hickok-Dickson. See [LICENSE.md](LICENSE.md) for more details.
