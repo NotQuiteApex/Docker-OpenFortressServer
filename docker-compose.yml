@@ -2,37 +2,34 @@ version: "3.9"
 
 services:
   ofsv:
-    # This is the image that the container will use to run the server. The string after the colon is
-    # the tag, which can be either `latest` or `latest-sm`. The first tag is a basic Open Fortress
-    # server with no extra plugins or maps installed. The second tag installs SourceMod with all the
-    # necessary components to work with Open Fortress, used for running plugins like RTV.
+    # This is the image that the container will use to run the server. The
+    # string after the colon is the tag, which can be either `latest` or
+    # `latest-sm`. The first tag is a basic Open Fortress server with no extra
+    # plugins or maps installed. The second tag installs SourceMod with all the
+    # necessary components to work with Open Fortress, used for running plugins
+    # like RTV.
     image: notquiteapex/ofsv:latest
     stdin_open: true
     tty: true
     
-    # These are volumes for accessing specific aspects of your server, such as the config folder,
-    # the custom folder, and the sourcemod folder. The last volume will not work if you do not have
-    # sourcemod installed on your server. These volumes are accessible in /var/lib/docker/volumes on
-    # Linux, and you can edit your files so long as you have root permissions (sudo).
+    # These are volumes for accessing specific aspects of your server, such as
+    # the config folder, the custom folder, and the sourcemod folder. These
+    # volumes are accessible in /var/lib/docker/volumes on Linux, and you can
+    # edit your files so long as you have root permissions (sudo).
     volumes:
-      - type: bind
-        source: ./of_cfg
-        target: /root/.steam/steamcmd/sdk/open_fortress/cfg
-      - type: bind
-        source: ./of_custom
-        target: /root/.steam/steamcmd/sdk/open_fortress/custom
-      - type: bind
-        source: ./of_sourcemod
-        target: /root/.steam/steamcmd/sdk/open_fortress/addons/sourcemod
+      - of_cfg:/root/.steam/steamcmd/sdk/open_fortress/cfg
+      - of_custom:/root/.steam/steamcmd/sdk/open_fortress/custom
+      - of_addons:/root/.steam/steamcmd/sdk/open_fortress/addons
 
-    # These are the ports necessary for server operation. These allow the container to communicate
-    # with the host computer through these ports. You will still need to forward the ports yourself.
-    # Do not edit these unless you absolutely know what you're doing.
+    # These are the ports necessary for server operation. These allow the
+    # container to communicate with the host computer through these ports. You
+    # will still need to forward the ports yourself. Do not edit these unless
+    # you absolutely know what you're doing.
     ports:
       - "27015:27015/tcp"
       - "27015:27015/udp"
 
 volumes:
-  cfg:
-  cstm:
-  sm:
+  of_cfg:
+  of_custom:
+  of_addons:

@@ -21,7 +21,7 @@ Notes:
 # Expert Guide - SourceMod, custom content, and more
 If you know Docker pretty well or need some specific changes to the setup, you can change the [docker-compose.yml](docker-compose.yml). For example, if you'd like to run the server with SourceMod for plugins and better server management, edit the compose file to change the image tag from "latest" to "latest-sm".
 
-To add/edit files to/on your server, certain directories for the server are exposed as Docker volumes. If using the default [docker-compose.yml](docker-compose.yml), these folders are `of_cfg`, `of_custom`, and `of_sourcemod` for useful server directories you might want to edit and add files to. They are analogous to the server's cfg folder, custom folder, and sourcemod folder respectively.
+To add/edit files to/on your server, certain directories for the server are exposed as Docker volumes. If using the default [docker-compose.yml](docker-compose.yml), these named volumes are `of_cfg`, `of_custom`, and `of_addons` for useful server directories you might want to edit and add files to. They are analogous to the server's cfg folder, custom folder, and addons folder respectively. The latter of which can be used to install and manage SourceMod. You can learn how to access these volumes [here](https://docs.docker.com/storage/volumes/#create-and-manage-volumes), using the `docker volume inspect` command and using the outputed mount point.
 
 The Open Fortress Docker Image bases the image off itself to simply update the files of the game. This is done with the [Dockerfile.of](dockerfiles/Dockerfile.of) file in the dockerfiles folder, however if you need to build the image from scratch the [Dockerfile.cache](dockerfiles/Dockerfile.cache) file will be what you need to use.
 
