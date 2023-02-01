@@ -1,8 +1,6 @@
 name: Build Open Fortress images with cached images.
 
 on:
-  push:
-    branches: ["main"]
   schedule:
     - cron: '0 0 * * 0'
 
