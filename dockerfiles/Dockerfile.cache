@@ -14,6 +14,7 @@ RUN dpkg --add-architecture i386 && apt-get update && apt-get install -y \
 RUN curl -L https://dl.spiderden.net/murse/linux -o murse && chmod +x ./murse
 
 # Install TF2 and SDK
+RUN ls
 RUN steamcmd +runscript ./tf2sdk-update.txt
 # Symlink binaries
 RUN cd ./sdk/bin/ && \
