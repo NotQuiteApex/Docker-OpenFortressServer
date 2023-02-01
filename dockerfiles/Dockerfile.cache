@@ -5,8 +5,8 @@ FROM steamcmd/steamcmd:latest
 # Copy everything in.
 # do dry run of steamcmd so script gets copied
 RUN steamcmd +quit
-RUN /root/.steam/
-RUN /root/.steam/steamcmd
+RUN ls /root/.steam/
+RUN ls /root/.steam/steamcmd
 WORKDIR /root/.steam/steamcmd
 ADD ./scripts/* ./
 
