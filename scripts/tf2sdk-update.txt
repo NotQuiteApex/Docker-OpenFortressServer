@@ -1,8 +1,8 @@
 @ShutdownOnFailedCommand 1
 @NoPromptForPassword 1
 login anonymous
-force_install_dir ./tf2
+force_install_dir /root/.steam/ofsv/tf2
 app_update 232250
-force_install_dir ./sdk
+force_install_dir /root/.steam/ofsv/sdk
 app_update 244310
 quit

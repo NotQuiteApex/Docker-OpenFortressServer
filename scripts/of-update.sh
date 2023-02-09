@@ -1,9 +1,7 @@
 #!/usr/bin/env bash
 # Updates Open Fortress.
 declare -a u=( \
-	"https://toast.openfortress.fun/toast" \
-	"https://toast1.openfortress.fun/toast/" \
-	"https://toast3.openfortress.fun/toast/" )
+	"https://toast.openfortress.fun/toast" )
 
 for str in ${u[@]}; do
 	echo "Checking toast link: $str"
@@ -22,7 +20,7 @@ for str in ${u[@]}; do
 	echo "Verify success."
 
 	echo "Fixing gameinfo.txt"
-	sed -i 's+|all_source_engine_paths|..\\Team Fortress 2\\+/root/.steam/steamcmd/tf2/+g' ./sdk/open_fortress/gameinfo.txt
+	sed -i 's+|all_source_engine_paths|..\\Team Fortress 2\\+/root/.steam/ofsv/tf2/+g' ./sdk/open_fortress/gameinfo.txt
 
 	echo "Removing C++ binary"
 	rm ./sdk/bin/libstdc++.so.6

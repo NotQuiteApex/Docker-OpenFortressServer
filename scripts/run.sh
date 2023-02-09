@@ -4,7 +4,7 @@
 while :
 do
 	echo "Updating TF2 + SDK."
-	until steamcmd +runscript ./tf2sdk-update.txt
+	until steamcmd +runscript /root/.steam/ofsv/tf2sdk-update.txt
 	do
 		echo "Failed to update TF2 + SDK. Trying again in a five seconds."
 		sleep 5
