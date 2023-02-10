@@ -8,7 +8,7 @@ A Docker image to streamline and easily deploy new Open Fortress servers. Requir
 
 # Simple Guide - Setting up and deploying a simple server
 0. First off, you'll want to [install Docker](https://docs.docker.com/engine/install/), this tutorial assumes you will be using Docker on some flavor of Linux, and know some basic stuff about Linux.
-0. Next, you'll want to clone/download this repo, cd into the cloned repo, run `mkdir of_cfg of_custom of_sourcemod` to create server accessible directories for configuring, then `docker compose up` to run the server attached to your terminal.
+0. Next, you'll want to clone/download this repo, cd into the cloned repo, then `docker compose up` to run the server attached to your terminal.
 0. The server will start up, first updating TF2 and the SDK, then Open Fortress, and then properly start the server. You will see a message about root access, this is safe to ignore. You may also see a message about no map being specified, this is safe to ignore if a map is selected in autoexec.cfg (which there is by default, dm_2fort).
 0. The output will say what its public IP is, indicating that the server is up and running an accessible. You can send a keyboard interrupt (ctrl+c) to stop the server.
 
