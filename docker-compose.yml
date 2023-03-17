@@ -17,9 +17,9 @@ services:
     # volumes are accessible in /var/lib/docker/volumes on Linux, and you can
     # edit your files so long as you have root permissions (sudo).
     volumes:
-      - of_cfg:/root/.steam/steamcmd/sdk/open_fortress/cfg
-      - of_custom:/root/.steam/steamcmd/sdk/open_fortress/custom
-      - of_addons:/root/.steam/steamcmd/sdk/open_fortress/addons
+      - of_cfg:/root/.steam/ofsv/sdk/open_fortress/cfg
+      - of_custom:/root/.steam/ofsv/sdk/open_fortress/custom
+      - of_addons:/root/.steam/ofsv/sdk/open_fortress/addons
 
     # These are the ports necessary for server operation. These allow the
     # container to communicate with the host computer through these ports. You
