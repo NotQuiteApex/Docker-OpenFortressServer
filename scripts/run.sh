@@ -20,13 +20,14 @@ do
 	echo "Open Fortress update finished."
 
 	echo "Starting Server."
+	echo "Using args `$@`."
 	./sdk/srcds_run -console -game open_fortress \
-		-secure -timeout 0 -nobreakpad -exec autoexec
+		-secure -secure -timeout 0 -nobreakpad $@
 	EXITCODE=$?
 	if [$EXITCODE -eq 1] || [$EXITCODE -eq 130]; then
 		echo "Something went wrong, the server may have crashed."
 		echo "Please check the logs before starting back up."
 		exit 1
 	fi
-	echo "Server exited."
+	echo "Server exited. Restarting..."
 done
