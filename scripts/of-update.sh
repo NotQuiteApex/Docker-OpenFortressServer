@@ -3,24 +3,22 @@
 
 echo "Downloading Open Fortress via beans."
 
-mkdir -p ./sdk/open_fortress/
-
 while :
 do
     if [ -d "open_fortress" ]; then
         echo "OF is installed. Updating."
-        ./beans --update ./sdk/open_fortress/
+        ./beans --update ./sdk/
         if [ $? -ne 0 ]; then
-            echo "Beans failed, retrying..."
+            echo "Beans upgrade failed, retrying..."
             continue
         fi
         echo "Beans update complete."
 		break
     else
         echo "OF is not installed. Instaling."
-        ./beans --install ./sdk/open_fortress/
+        ./beans --install ./sdk/
         if [ $? -ne 0 ]; then
-     	    echo "Beans failed, retrying..."
+     	    echo "Beans install failed, retrying..."
      	    continue
         fi
         echo "Beans install complete."

@@ -10,7 +10,7 @@ ADD ./scripts/* ./
 RUN dpkg --add-architecture i386 && apt-get update && apt-get install -y \
 	lib32gcc-s1 libstdc++6 libstdc++6:i386 libncurses5:i386 libtinfo5:i386 \
 	libcurl4-gnutls-dev:i386 curl
-# Install beans. This downloads Open Fortress for us.
+# Install Beans. This downloads Open Fortress for us.
 RUN curl -L https://beans.adastral.net/beans -o beans && chmod +x ./beans
 
 # Install TF2 and SDK
