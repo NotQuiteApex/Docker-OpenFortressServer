@@ -3,6 +3,8 @@
 
 echo "Downloading Open Fortress via beans."
 
+mkdir -p ./sdk/open_fortress/
+
 while :
 do
     if [ -d "open_fortress" ]; then
